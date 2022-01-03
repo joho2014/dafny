@@ -600,7 +600,7 @@ namespace Microsoft.Dafny {
         pythonProcess.WaitForExit();
         return pythonProcess.ExitCode == 0;
       } catch (Exception e) {
-        outputWriter.WriteLine("Error: Unable to start python ({0}): {1}", psi.FileName, e.Message);
+        outputWriter.WriteLine("Error: Unable to start python ({0}): {1}\n{2}", psi.FileName, e.Message, psi.EnvironmentVariables);
         return false;
       }
     }
