@@ -86,7 +86,7 @@ jobs:
     - name: Manually sync certs
       if: runner.os == 'Linux'
       run: cert-sync /etc/ssl/certs/ca-certificates.crt
-    - uses: actions/setup-python@v1
+    - uses: actions/setup-python@v2
     - name: Setup dotnet
       uses: actions/setup-dotnet@v1.9.0
       with:
