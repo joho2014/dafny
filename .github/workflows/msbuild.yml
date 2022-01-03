@@ -54,7 +54,9 @@ jobs:
       run: dotnet tool run dotnet-format -w -s error --check Source/Dafny.sln --exclude Dafny/Scanner.cs --exclude Dafny/Parser.cs
       
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on:
+      - self-hosted
+      - ${{ matrix.os }}
     strategy:
       matrix:
         ## Windows jobs fail on some lit tests and sometimes fail even to
