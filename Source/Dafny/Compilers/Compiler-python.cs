@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.IO;
+using System.Linq;
 using Microsoft.Boogie;
 
 
@@ -584,7 +585,9 @@ namespace Microsoft.Dafny {
         RedirectStandardError = false,
       };
 
-      outputWriter.WriteLine("Error: Unable to start python ({0}):\n{1}", psi.FileName, $"{{ {psi.Environment.Comma((kv) => $"{kv.Key} := {kv.Value}")} }}");
+      outputWriter.WriteLine("Error: Proc env {0}", $"{{ {System.Environment.GetEnvironmentVariables().Keys.OfType<string>().Comma((k) => $"{k} := {System.Environment.GetEnvironmentVariable(k)}")} }}");
+
+      outputWriter.WriteLine("Error: Child env {0}", $"{{ {psi.Environment.Comma((kv) => $"{kv.Key} := {kv.Value}")} }}");
 
       try {
         using var pythonProcess = Process.Start(psi);
