@@ -584,6 +584,8 @@ namespace Microsoft.Dafny {
         RedirectStandardError = false,
       };
 
+      outputWriter.WriteLine("Error: Unable to start python ({0}):\n{1}", psi.FileName, $"{{ {psi.Environment.Comma((kv) => $"{kv.Key} := {kv.Value}")} }}");
+
       try {
         using var pythonProcess = Process.Start(psi);
         foreach (var filename in otherFileNames) {
