@@ -87,14 +87,6 @@ jobs:
       if: runner.os == 'Linux'
       run: cert-sync /etc/ssl/certs/ca-certificates.crt
     - uses: actions/setup-python@v2
-    - name: printenv
-      run: printenv
-    - name: profile
-      run: cat ~/.profile
-    - name: renew profile
-      run: source ~/.profile
-    - name: printenv
-      run: printenv
     - name: Setup dotnet
       uses: actions/setup-dotnet@v1.9.0
       with:

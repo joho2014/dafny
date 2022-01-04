@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.IO;
-using System.Linq;
 using Microsoft.Boogie;
 
 
@@ -585,10 +584,6 @@ namespace Microsoft.Dafny {
         RedirectStandardError = false,
       };
 
-      outputWriter.WriteLine("Error: Proc env {0}", $"{{ {System.Environment.GetEnvironmentVariables().Keys.OfType<string>().Comma((k) => $"{k} := {System.Environment.GetEnvironmentVariable(k)}")} }}");
-
-      outputWriter.WriteLine("Error: Child env {0}", $"{{ {psi.Environment.Comma((kv) => $"{kv.Key} := {kv.Value}")} }}");
-
       try {
         using var pythonProcess = Process.Start(psi);
         foreach (var filename in otherFileNames) {
@@ -605,7 +600,7 @@ namespace Microsoft.Dafny {
         pythonProcess.WaitForExit();
         return pythonProcess.ExitCode == 0;
       } catch (Exception e) {
-        outputWriter.WriteLine("Error: Unable to start python ({0}): {1}\n{2}", psi.FileName, e.Message, psi.EnvironmentVariables);
+        outputWriter.WriteLine("Error: Unable to start python ({0}): {1}", psi.FileName, e.Message);
         return false;
       }
     }
