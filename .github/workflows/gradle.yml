@@ -9,7 +9,9 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - ubuntu-20.04
 
     steps:
       - name: Checkout Dafny

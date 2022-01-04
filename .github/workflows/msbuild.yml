@@ -14,7 +14,7 @@ jobs:
   singletons:
     runs-on:
       - self-hosted
-      - ubuntu-latest
+      - ubuntu-20.04
     steps:
     - name: Setup dotnet
       uses: actions/setup-dotnet@v1.9.0
@@ -71,14 +71,14 @@ jobs:
         ##os: [ubuntu-latest, windows-latest, ubuntu-18.04]
         ##os: [ubuntu-latest, macos-latest]
         os:
-          - ubuntu-latest
+          - ubuntu-20.04
 #           - macos-latest
 #           - windows-latest
 #           - ubuntu-18.04
         ## Size of the following array must match --num-shards in lit command
         shard: [1, 2, 3, 4, 5]
         include:
-        - os:                  'ubuntu-latest'
+        - os:                  'ubuntu-20.04'
           os_for_build:        'ubuntu'
 #         - os:                  'ubuntu-18.04'
 #           os_for_build:        'ubuntu'
