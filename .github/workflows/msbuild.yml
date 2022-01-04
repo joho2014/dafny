@@ -124,7 +124,7 @@ jobs:
         Expand-Archive dafny/Package/CI.zip unzippedRelease
     - if: runner.os != 'Windows'
       run: |
-        unzip dafny/Package/CI.zip -o -d unzippedRelease
+        unzip -o dafny/Package/CI.zip -d unzippedRelease
     - name: Run integration tests
       if: runner.os == 'Windows'
       env:
