@@ -89,6 +89,8 @@ jobs:
     - uses: actions/setup-python@v2
     - name: printenv
       run: printenv
+    - name: profile
+      run: cat ~/.profile
     - name: Setup dotnet
       uses: actions/setup-dotnet@v1.9.0
       with:
