@@ -60,7 +60,7 @@ jobs:
     steps:
     - name: Dump GitHub context
       env:
-        GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels.*.name) }}
+        GITHUB_CONTEXT: ${{ !(contains(github.event.pull_request.labels.*.name, 'run-deep-tests')) }}
       run: |
         echo "$GITHUB_CONTEXT"
 
