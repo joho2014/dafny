@@ -1,6 +1,6 @@
 Dafny
 
-Copyright (c) All Dafny Developers
+Copyright (c) Some Dafny Developers
 
 All rights reserved.
 
