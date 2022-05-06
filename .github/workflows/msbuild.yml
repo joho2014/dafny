@@ -49,23 +49,8 @@ jobs:
     - name: Check whitespace and style
       working-directory: dafny
       run: dotnet tool run dotnet-format -w -s error --check Source/Dafny.sln --exclude Dafny/Scanner.cs --exclude Dafny/Parser.cs
-  
-  check-deep-tests:
-    uses: ./.github/workflows/check-deep-tests-reusable.yml
-    if: ${{ !(contains(github.event.pull_request.labels.*.name, 'run-deep-tests')) }}
-    
-  printJob:    
-    name: Print event
-    runs-on: ubuntu-latest
-    steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ !(contains(github.event.pull_request.labels.*.name, 'run-deep-tests')) }}
-      run: |
-        echo "$GITHUB_CONTEXT"
 
   integration-tests:
-    needs: check-deep-tests
     uses: ./.github/workflows/integration-tests-reusable.yml
     with:
       # By default run only on one platform, but run on all platforms if the PR has the "run-deep-tests"
