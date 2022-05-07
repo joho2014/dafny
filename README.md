@@ -1,4 +1,4 @@
-[![Build and Test](https://github.com/dafny-lang/dafny/workflows/Build%20and%20Test/badge.svg)](https://github.com/dafny-lang/dafny/actions?query=workflow%3A%22Build+and+Test%22) [![Gitter](https://badges.gitter.im/dafny-lang/community.svg)](https://gitter.im/dafny-lang/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build and Test](https://github.com/dafny-lang/dafny/workflows/Build%20and%20Test/badge.svg)](https://github.com/dafny-lang/dafny/actions?query=workflow%3A%22Build+and+Test%22)
 
 Dafny is a **verification-ready programming language**. As you type in your program, Dafny's verifier constantly looks over your shoulder, flags any errors, shows you counterexamples, and congratulates you when your code matches your specifications. When you're done, Dafny can **compile your code to C#, Java, JavaScript or Go** (more to come!), so it can integrate with your existing workflow.
 
