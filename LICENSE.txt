@@ -1,6 +1,6 @@
 Dafny
 
-Copyright (c) All Dafny Developers
+Copyright (c) Microsoft Corporation
 
 All rights reserved.
 
